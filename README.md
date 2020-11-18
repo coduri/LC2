@@ -5,4 +5,5 @@
 <br>
 The Little Computer 2 (LC-2) is a simple computer used to
 introduce general-purpose computing devices to first-year engineering students with no previous background in computer architecture or
-logic design
+logic design.<br><br>
+<img src="https://i.ibb.co/vzSLrfj/lc2.png" border="0">
