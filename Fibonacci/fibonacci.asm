@@ -11,7 +11,7 @@
 FIBONACCI
 	; controllo casi base
 	add	r0, r0, #0		; aggiorno CC
-	brp noZero
+	brp 	noZero
 	
 	;qui n<=0
 	and	r0, r0, #0
@@ -47,7 +47,7 @@ loop
 	; altrimenti devo calcolare F(n) shiftando F(n-1) e F(n-2)
 	add	r2, r1, #0		; F(n-2) = F(n-1)
 	add	r1, r3, #0		; F(n-1) = F(n)
-	brnzp loop
+	brnzp 	loop
 
 fine
 	add	r0, r3, #0
