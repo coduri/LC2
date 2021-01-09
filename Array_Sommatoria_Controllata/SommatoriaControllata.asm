@@ -10,6 +10,7 @@
 		; 2 se overflow
 
 ;********* PROGRAMMA NON TESTATO!!! *********
+
 SOMMATORIA
 	st 	r1, save1
 	st 	r2, save2
@@ -31,7 +32,7 @@ loop
 	; si è verificato underflow
 	and	r0, r0, #0
 	add	r0, r0, #-2
-	brnzp fine
+	brnzp 	fine
 
 
 ; r1 positivo
@@ -41,26 +42,26 @@ pos
 
 	; r2, pos -> possibilità di overflow
 	add	r2, r2, r1		; r2 += array[i]
-	brp sommaFatta		; r1 pos, r2 pos, ris pos
+	brp 	sommaFatta		; r1 pos, r2 pos, ris pos
 
 	; si è verificato overflow
 	and	r0, r0, #0
 	add	r0, r0, #2
-	brnzp fine
+	brnzp 	fine
 
 
 noProblem
 	add	r2, r2, r1
 sommaFatta
-	add r0, r0, #1		; punt++
-	brnzp loop
+	add 	r0, r0, #1		; punt++
+	brnzp 	loop
 
 
 fineArray
 	and	r0, r0, #0
 	add	r2, r2, #0		; aggiorno CC
-	brp scrivi1
-	brz fine 			; c'è già scritto zero
+	brp 	scrivi1
+	brz 	fine 			; c'è già scritto zero
 	; negativo
 	add	r0, r0, #-1
 	brnzp	fine
@@ -73,3 +74,6 @@ fine
 	ld 	r1, save1
 	ld 	r2, save2
 	ret
+	
+save1	.blkw	1
+save2	.blkw	1
