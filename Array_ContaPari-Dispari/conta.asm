@@ -1,6 +1,6 @@
 ; Il candidato scriva un sottoprogramma denominato CONTA_PARI_DISPARI che riceve:
-	; In R0 l’indirizzo della prima cella di una zona di memoria contenente una sequenza di numeri
-	; In R1 l’indirizzo della cella contenente l’ultimo numero della sequenza di cui al punto 1.
+	; In R0 lâ€™indirizzo della prima cella di una zona di memoria contenente una sequenza di numeri
+	; In R1 lâ€™indirizzo della cella contenente lâ€™ultimo numero della sequenza di cui al punto 1.
 
 ; Il sottoprogramma deve restituire:
 	; 1. nel registro R0 il conteggio di quanti numeri pari sono presenti nella sequenza;
@@ -43,20 +43,20 @@ CONTA_PARI_DISPARI
 	not	r1, r1
 	add	r1, r1, #1		; R1: - (indirizzo fine)
 
-	and 	r5, r5, #0		; R5: contatore a pari
-	and 	r6, r6, #0		; R6: contatore a dispari
+	and 	r3, r3, #0		; R3: contatore a pari
+	and 	r4, r4, #0		; R4: contatore a dispari
 
 
 ciclo	
 	add	r2, r1, r0		; controllo se ho finito
-	brp	fine			; ho finito quando ind. corrente è oltre ind. finale
+	brp	fine			; ho finito quando ind. corrente Ã¨ oltre ind. finale
 
 	ldr 	r2, r0, #0		; r2 = array[i]
 	and	r2, r2, #00001		; verifico bit meno significativo, inutile fare un .fill con il valore
 					; N.B. nel caso dell'and i bit mancanti sono 0 (nel caso dell'add viene esteso il primo bit complemento a 2)
 	brz	pari
 
-    ; qui è dispari
+    ; qui Ã¨ dispari
 	add	r4, r4, #1
 	brnzp 	prossimo
 
